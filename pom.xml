@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>co.edu.uniandes.fuse.labs</groupId>
 	<artifactId>restdsl</artifactId>
-	<version>1.1.1</version>
+	<version>1.1.2-SNAPSHOT</version>
 	<name>REST DSL API</name>
 	<description>A simple REST DSL API with swagger</description>
 	<licenses>
@@ -24,7 +24,7 @@
 	<scm>
 		<connection>scm:git:https://github.com/LuisCastilloB/uniandes-rest.git</connection>
 		<url>https://github.com/LuisCastilloB/uniandes-rest</url>
-		<tag>restdsl-1.1.1</tag>
+		<tag>HEAD</tag>
 	</scm>
 
 	<dependencyManagement>
