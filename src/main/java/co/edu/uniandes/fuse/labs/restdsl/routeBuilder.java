@@ -32,8 +32,7 @@ public class routeBuilder extends RouteBuilder {
 		/**
 		 * EXCEPTIONS 
 		 */
-		
-		//A change 2
+		//A simple change
 		onException(Exception.class)
 		 	.handled(true)
 		    .setHeader(Exchange.HTTP_RESPONSE_CODE, constant(400))
