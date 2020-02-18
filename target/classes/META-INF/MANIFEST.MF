@@ -1,0 +1,30 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1582035777664
+Build-Jdk: 1.8.0_241
+Built-By: LuisCastillo
+Bundle-Description: A simple REST DSL API with swagger
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.html
+Bundle-ManifestVersion: 2
+Bundle-Name: A simple REST DSL API with swagger
+Bundle-SymbolicName: restdsl
+Bundle-Version: 0.0.3
+Created-By: Apache Maven Bundle Plugin
+Export-Package: co.edu.uniandes.fuse.labs.restdsl.beans;uses:="org.apach
+ e.camel";version="0.0.3",co.edu.uniandes.fuse.labs.restdsl.models;uses:
+ ="io.swagger.annotations";version="0.0.3",co.edu.uniandes.fuse.labs.res
+ tdsl.processors;uses:="org.apache.camel";version="0.0.3",co.edu.uniande
+ s.fuse.labs.restdsl;uses:="org.apache.camel.builder";version="0.0.3"
+Import-Package: co.edu.uniandes.fuse.labs.restdsl.beans;resolution:=opti
+ onal,co.edu.uniandes.fuse.labs.restdsl.models;resolution:=optional,co.e
+ du.uniandes.fuse.labs.restdsl.processors;resolution:=optional,co.edu.un
+ iandes.fuse.labs.restdsl.routeBuilder;resolution:=optional,com.fasterxm
+ l.jackson.annotation;resolution:=optional;version="[2.6,3)",io.swagger.
+ annotations;resolution:=optional;version="[1.5,2)",org.apache.camel;res
+ olution:=optional;version="[2.17,3)",org.apache.camel.builder;resolutio
+ n:=optional;version="[2.17,3)",org.apache.camel.component.jackson;resol
+ ution:=optional;version="[2.17,3)",org.apache.camel.model;resolution:=o
+ ptional;version="[2.17,3)",org.apache.camel.model.rest;resolution:=opti
+ onal;version="[2.17,3)",org.apache.camel.spi;resolution:=optional;versi
+ on="[2.17,3)"
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.8))"
+Tool: Bnd-3.2.0.201605172007

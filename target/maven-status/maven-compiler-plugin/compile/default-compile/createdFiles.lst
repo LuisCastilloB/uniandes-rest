@@ -1,0 +1,7 @@
+co\edu\uniandes\fuse\labs\restdsl\processors\UserProcessor.class
+co\edu\uniandes\fuse\labs\restdsl\routeBuilder.class
+co\edu\uniandes\fuse\labs\restdsl\beans\UserService.class
+co\edu\uniandes\fuse\labs\restdsl\models\User_Req.class
+co\edu\uniandes\fuse\labs\restdsl\models\User.class
+co\edu\uniandes\fuse\labs\restdsl\models\UserPhones.class
+co\edu\uniandes\fuse\labs\restdsl\models\ResponseStructure.class
