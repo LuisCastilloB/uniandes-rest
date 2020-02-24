@@ -1,4 +1,4 @@
-package co.edu.uniandes.fuse.labs.restdsl;
+package co.edu.uniandes.fuse.labs.restdsl.routes;
 
 import org.apache.camel.Exchange;
 import org.apache.camel.builder.RouteBuilder;
@@ -19,7 +19,6 @@ public class routeBuilder extends RouteBuilder {
 		/**
 		 * DATA FORMATS
 		 */
-		
 		JacksonDataFormat jsonDFUser = new JacksonDataFormat(User.class);
 		jsonDFUser.setPrettyPrint(true);
 		
@@ -52,7 +51,8 @@ public class routeBuilder extends RouteBuilder {
 		         .apiProperty("cors", "true");
 
 		rest("/example").description("Example rest service")
-			.get("/user/{type}/{document}").description("Find a user by type and document")
+			.get("/user/{type}/{document}")
+				.description("Find a user by type and document")				
 				.consumes("application/json").produces("application/json")
 				.param().name("type").required(true).description("The type of the user").defaultValue("CC").dataType("string").endParam()
 				.param().name("document").required(true).description("The document of the user").defaultValue("1234567").dataType("integer").endParam()
@@ -73,19 +73,28 @@ public class routeBuilder extends RouteBuilder {
 				.param().name("id").required(true).description("The Id of the user").defaultValue("123456").dataType("integer").endParam()
 				.outType(ResponseStructure.class)
 				.to("direct:delete")
+				
 		;
 				
 		from("direct:find")
 		.bean(UserService.class, "getUser")
 		.marshal(jsonDFUser)
-		.log("${body}");
+		.setHeader(Exchange.HTTP_RESPONSE_CODE, constant(200))
+	    .setHeader(Exchange.CONTENT_TYPE, constant("application/json"))
+		.log("Body: \n ${body}")
+		.log("Headers: \n ${headers}")
+		.to("mock:outputGet")
+		;
 		
 		from("direct:update")
 		.unmarshal(jsonDFUser)
 		.process(new UserProcessor())
 		.bean(UserService.class, "updateUser")
 		.marshal(jsonDFUser)
-		.log("${body}");
+		.setHeader(Exchange.HTTP_RESPONSE_CODE, constant(200))
+	    .setHeader(Exchange.CONTENT_TYPE, constant("application/json"))
+		.log("${body}")
+		.to("mock:outputPost");
 		
 		from("direct:insert")
 		.unmarshal(jsonDFUser_Req)
