@@ -1,0 +1,12 @@
+{
+  "id" : 1234,
+  "type" : "CC",
+  "document" : 12345678,
+  "name" : "Pere",
+  "lastName" : "Perez",
+  "userPhones" : {
+    "officePhone" : "400 12 11",
+    "homePhone" : "366 45 11",
+    "mobilePhone" : "300 123 1144"
+  }
+}
