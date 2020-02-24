@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+	tools {
+        maven 'maven-local'
+    }
+
     stages {
     
     	/*
@@ -27,14 +31,14 @@ pipeline {
         /*
         stage ('Deploy Stage') {
             steps {
-                    sh 'mvn deploy'
+                    sh 'mvn deploy -DskipTests'
                 }
         }
         
         /*
         stage ('Release Prepare Stage') {
             steps {
-                    sh 'mvn release:prepare'
+                    sh 'mvn release:prepare -DskipTests'
                 }
         }
         */
@@ -42,7 +46,7 @@ pipeline {
         /*
         stage ('Release perform Stage') {
             steps {
-                    sh 'mvn release:perform -Darguments="-Dmaven.javadoc.skip=true"'
+                    sh 'mvn release:perform -Darguments="-Dmaven.javadoc.skip=true" -DskipTests'
                 }
         }
         */
