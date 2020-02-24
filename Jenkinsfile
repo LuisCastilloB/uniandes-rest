@@ -2,22 +2,49 @@ pipeline {
     agent any
 
     stages {
-        stage ('Compile Stage') {
-
+    
+    	/*
+    	stage ('SonarQube Stage') {
             steps {
-                withMaven(maven : 'Maven Local') {
+                    sh 'mvn sonar:sonar'
+                }
+        }
+        */
+    
+        stage ('Compile Stage') {
+            steps {
                     sh 'mvn clean compile'
                 }
-            }
         }
 
         stage ('Testing Stage') {
-
             steps {
-                withMaven(maven : 'Maven Local') {
                     sh 'mvn test'
                 }
-            }
         }
+        
+        /*
+        stage ('Deploy Stage') {
+            steps {
+                    sh 'mvn deploy'
+                }
+        }
+        
+        /*
+        stage ('Release Prepare Stage') {
+            steps {
+                    sh 'mvn release:prepare'
+                }
+        }
+        */
+        
+        /*
+        stage ('Release perform Stage') {
+            steps {
+                    sh 'mvn release:perform -Darguments="-Dmaven.javadoc.skip=true"'
+                }
+        }
+        */
+        
     }
 }
