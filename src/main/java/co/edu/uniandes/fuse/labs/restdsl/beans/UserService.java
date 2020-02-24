@@ -16,16 +16,16 @@ public class UserService {
 			int document = exchange.getIn().getHeader("document", Integer.class);
 			
 			User user = new User();
-			user.setId(1234);
+			user.setId(document);
 			user.setType(type);
 			user.setDocument(document);
 			user.setName("Pere");
 			user.setLastName("Perez");
 			
 			UserPhones userPhones = new UserPhones();
-			userPhones.setHomePhone("366 45 12");
-			userPhones.setMobilePhone("300 123 4544");
-			userPhones.setOfficePhone("400 12 47");
+			userPhones.setHomePhone("366 45 00");
+			userPhones.setMobilePhone("300 123 0000");
+			userPhones.setOfficePhone("400 12 00");
 		
 			user.setUserPhones(userPhones);			
 			exchange.getIn().setBody(user);
