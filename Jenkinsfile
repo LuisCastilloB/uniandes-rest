@@ -6,6 +6,7 @@ pipeline {
     	/*
     	stage ('SonarQube Stage') {
             steps {
+            		sh 'mvn clean install verify'
                     sh 'mvn sonar:sonar'
                 }
         }
